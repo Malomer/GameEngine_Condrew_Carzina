@@ -1,26 +1,7 @@
 #include <SFML/Graphics.hpp>
 
-#include "CondrewCarzina.h" 
-
-int main(int argc, char* argv[]) { 
-	CondrewCarzina::Initialize();
-	CondrewCarzina::Start();
-	return 0; 
-} 
-
-void CondrewCarzina::Start(void) {
-	if (gameState != Uninitialized)
-		return; 
-	mainWindow.create(sf::VideoMode(1024, 768, 32), "CondrewCarzina Engine"); 
-	gameState = CondrewCarzina::Playing;
-	while (!IsExiting()) { 
-		GameLoop(); 
-	}
-	mainWindow.close(); 
-}
-
 // This method is only used to test if SFML loads properly.
-int mainTest()
+int main()
 {
 	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
 	sf::CircleShape shape(100.f);
