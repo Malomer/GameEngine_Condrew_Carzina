@@ -1,24 +1,38 @@
+
 #include "GameObject.h"
+#include "Component.h"
 
-GameObject::~GameObject(void) { 
-	for(unsigned int i =0; i< children.size(); i++) { 
-		delete children[i]; 
-	} 
-} 
+GameObject::GameObject(unsigned int id) {
+	id = id;
+	type = "Unknown";
+}
 
-void GameObject::AddChild(GameObject* s) { 
-	children.push_back(s); 
-	s->parent = this; 
-}  
+GameObject::~GameObject(void) {
+	std::cout << "Destroyed GameObject " << id << std::endl;
+}
 
-void GameObject::Update(float msec) { 
-	if(parent){ //This node has a parent...  
-		worldTransform = parent->worldTransform * transform;  
-	} else { //Root node, world transform is local transform!  
-		worldTransform = transform;  
-	}  
-	
-	for(std::vector<GameObject*>::iterator i = children.begin(); i != children.end(); ++i) { 
-		(*i)->Update(msec); 
+bool GameObject::Init() {
+	for (Components::iterator it = components.begin(); it != components.end(); ++it) {
+		it->second->VPostInit();
 	}
+	return true;
+}
+
+void GameObject::Destroy(void) {
+	components.clear();
+}
+
+void GameObject::Update(int deltaMs) {
+	for (Components::iterator it = components.begin(); it != components.end(); ++it) {
+		it->second->VUpdate(deltaMs);
+	}
+}
+
+void GameObject::AddComponent(StrongActorComponentPtr pComponent) {
+	std::pair<Component::iterator, bool> success = components.insert(std::make_pair(pComponent->VGetName(), pComponent));
+}
+
+void GameObject::AddChild(GameObject* child) {
+	children.push_back(child);
+	child->parent = this;
 }

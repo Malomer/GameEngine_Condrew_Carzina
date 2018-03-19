@@ -1,3 +1,5 @@
+#pragma once
+
 #include "SFML/Window.hpp" 
 #include "SFML/Graphics.hpp"
 #include <direct.h>
@@ -7,6 +9,7 @@
 #include <iostream>
 
 class CondrewCarzina { 
+
 public:
 	void Start();
 	void Initialize(); 
@@ -18,8 +21,8 @@ public:
 	enum GameState { Uninitialized, ShowingSplash, Paused, ShowingMenu, Playing, Exiting };
 
 private:
-    bool IsExiting();
-	void GameLoop();
+    //bool IsExiting();
+	//void GameLoop();
 
 	GameState gameState;
 	sf::RenderWindow mainWindow; 

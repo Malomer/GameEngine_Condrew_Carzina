@@ -23,14 +23,18 @@
     <ClCompile Include="Source\CPP\GameObject.cpp" />
     <ClCompile Include="Source\CPP\GameObjectManager.cpp" />
     <ClCompile Include="Source\CPP\main.cpp" />
+    <ClCompile Include="Source\CPP\Process.cpp" />
+    <ClCompile Include="Source\CPP\ProcessManager.cpp" />
     <ClCompile Include="Source\CPP\SplashScreen.cpp" />
     <ClCompile Include="Source\Header\CondrewCarzina.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Header\Component.h" />
-    <ClInclude Include="Source\Header\Components\TransformComponent.h" />
     <ClInclude Include="Source\Header\GameObject.h" />
     <ClInclude Include="Source\Header\GameObjectManager.h" />
+    <ClInclude Include="Source\Header\Imports.h" />
+    <ClInclude Include="Source\Header\Process.h" />
+    <ClInclude Include="Source\Header\ProcessManager.h" />
     <ClInclude Include="Source\Header\SplashScreen.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -85,12 +89,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)CondrewCarzina\Game\$(Configuration)</OutDir>
-    <IntDir>$(SolutionDir)CondrewCarzina\Temp\$(Configuration)</IntDir>
+    <OutDir>$(SolutionDir)CondrewCarzina\Game\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)CondrewCarzina\Temp\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)CondrewCarzina\Game\$(Configuration)</OutDir>
-    <IntDir>$(SolutionDir)CondrewCarzina\Temp\$(Configuration)</IntDir>
+    <OutDir>$(SolutionDir)CondrewCarzina\Game\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)CondrewCarzina\Temp\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

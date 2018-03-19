@@ -7,6 +7,7 @@ void SplashScreen::Show(sf::RenderWindow & renderWindow) {
 		return; 
 	} 
 	
+	/*
 	sf::Sprite sprite(image);
 	renderWindow.draw(sprite); 
 	renderWindow.display();
@@ -21,4 +22,5 @@ void SplashScreen::Show(sf::RenderWindow & renderWindow) {
 			} 
 		} 
 	} 
+	*/
 }

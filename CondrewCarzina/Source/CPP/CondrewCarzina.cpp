@@ -25,12 +25,15 @@ void CondrewCarzina::Start() {
 	
 	mainWindow.create(sf::VideoMode(1024, 768, 32), "The game that can hopefully make us pass");
 	gameState = CondrewCarzina::Playing;
+	/*
 	while (!IsExiting()) {
 		GameLoop();
 	}
+	*/
 
 	mainWindow.close();
 }
+
 
 bool CondrewCarzina::CheckStorage(const long diskSpaceNeeded) {
 	int const drive = _getdrive(); 
@@ -71,29 +74,23 @@ DWORD CondrewCarzina::ReadCPUSpeed() {
 	HKEY hKey; 
 	long lError = RegOpenKeyEx(HKEY_LOCAL_MACHINE, "HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0", 0, KEY_READ, &hKey); 
 	if(lError == ERROR_SUCCESS) {
-		RegQueryValueEx(hKey, "MH", NULL, &type, (LPBYTE) &dwMHz, &BufSize); 
+		RegQueryValueEx(hKey, "~MH", NULL, &type, (LPBYTE) &dwMHz, &BufSize); 
 	} 
 	return dwMHz; 
 }
 
-int mainBackup()
-{
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
-
-	while (window.isOpen())
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-
+bool IsOnlyInstance(LPCTSTR gameTitle) {
+	HANDLE handle = CreateMutex(NULL, TRUE, gameTitle);
+	if (GetLastError() != ERROR_SUCCESS) {
+		HWND hWnd = FindWindow(gameTitle, NULL);
+		if (hWnd) {
+			// An instance of your game is already running.
+			ShowWindow(hWnd, SW_SHOWNORMAL);
+			SetFocus(hWnd);
+			SetForegroundWindow(hWnd);
+			SetActiveWindow(hWnd);
+			return false;
 		}
-		window.clear();
-		window.draw(shape);
-		window.display();
 	}
-	return 0;
+	return true;
 }
