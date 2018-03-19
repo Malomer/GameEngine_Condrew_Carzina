@@ -21,62 +21,70 @@ void CondrewCarzina::Initialize() {
 
 void CondrewCarzina::Start() {
 	if (gameState != Uninitialized)
-		return; 
-	
-	mainWindow.create(sf::VideoMode(1024, 768, 32), "The game that can hopefully make us pass");
+		return;
+
+	mainWindow.create(sf::VideoMode(1024, 768, 32), "Testing");
 	gameState = CondrewCarzina::Playing;
-	/*
+	
+	sf::Clock clock;
 	while (!IsExiting()) {
-		GameLoop();
+		sf::Time elapsed = clock.restart();
+		GameLoop(clock.getElapsedTime().asMilliseconds);
 	}
-	*/
 
 	mainWindow.close();
 }
 
+void CondrewCarzina::GameLoop(INT32 time) {
+	gameObjectManager.Update(time);
+}
+
+bool CondrewCarzina::IsExiting() {
+	return isExiting;
+}
 
 bool CondrewCarzina::CheckStorage(const long diskSpaceNeeded) {
-	int const drive = _getdrive(); 
-	struct _diskfree_t diskfree; 
-	_getdiskfree(drive, &diskfree); 
-	unsigned __int64 const neededClusters = diskSpaceNeeded / (diskfree.sectors_per_cluster * diskfree.bytes_per_sector); 
-	if (diskfree.avail_clusters < neededClusters) { 
+	int const drive = _getdrive();
+	struct _diskfree_t diskfree;
+	_getdiskfree(drive, &diskfree);
+	unsigned __int64 const neededClusters = diskSpaceNeeded / (diskfree.sectors_per_cluster * diskfree.bytes_per_sector);
+	if (diskfree.avail_clusters < neededClusters) {
 		return false; // Not enough disk space
-	} 
-	return true; 
+	}
+	return true;
 }
 
 bool CondrewCarzina::CheckMemory(const long physicalRAMNeeded, const long virtualRAMNeeded) {
-	MEMORYSTATUSEX status; 
-	GlobalMemoryStatusEx(&status); 
-	if (status.ullTotalPhys < physicalRAMNeeded) { 
+	MEMORYSTATUSEX status;
+	GlobalMemoryStatusEx(&status);
+	if (status.ullTotalPhys < physicalRAMNeeded) {
 		std::cout << "CheckMemory: Not enough physical memory.";
-		return false; 
+		return false;
 	}
-	if (status.ullAvailVirtual < virtualRAMNeeded) { 
+	if (status.ullAvailVirtual < virtualRAMNeeded) {
 		std::cout << "CheckMemory: Not enough virtual memory.";
-		return false; 
-	} 
-	char *buff = new char[virtualRAMNeeded]; 
-	if (buff) 
-		delete[] buff; 
+		return false;
+	}
+	char *buff = new char[virtualRAMNeeded];
+	if (buff)
+		delete[] buff;
 	else {
 		std::cout << "CheckMemory: Not enough contiguous memory.";
-		return false; 
+		return false;
 
-	} 
+	}
 }
 
 DWORD CondrewCarzina::ReadCPUSpeed() {
 	DWORD BufSize = sizeof(DWORD);
-	DWORD dwMHz = 0; 
-	DWORD type = REG_DWORD; 
-	HKEY hKey; 
-	long lError = RegOpenKeyEx(HKEY_LOCAL_MACHINE, "HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0", 0, KEY_READ, &hKey); 
-	if(lError == ERROR_SUCCESS) {
-		RegQueryValueEx(hKey, "~MH", NULL, &type, (LPBYTE) &dwMHz, &BufSize); 
-	} 
-	return dwMHz; 
+	DWORD dwMHz = 0;
+	DWORD type = REG_DWORD;
+	HKEY hKey;
+	long lError = RegOpenKeyEx(HKEY_LOCAL_MACHINE, "HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0", 0, KEY_READ, &hKey);
+	if (lError == ERROR_SUCCESS) {
+		RegQueryValueEx(hKey, "~MH", NULL, &type, (LPBYTE)&dwMHz, &BufSize);
+	}
+	return dwMHz;
 }
 
 bool IsOnlyInstance(LPCTSTR gameTitle) {

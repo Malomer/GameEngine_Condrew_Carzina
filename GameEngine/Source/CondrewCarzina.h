@@ -1,18 +1,18 @@
 #pragma once
 
-#include "SFML/Window.hpp" 
 #include "SFML/Graphics.hpp"
+#include "GameObjectManager.h"
 #include <direct.h>
 #include <windows.h>
 #include <stdio.h>
 #include <tchar.h>
 #include <iostream>
 
-class CondrewCarzina { 
+class CondrewCarzina {
 
 public:
 	void Start();
-	void Initialize(); 
+	void Initialize();
 
 	bool CheckStorage(const long diskSpaceNeeded);
 	bool CheckMemory(const long physicalRAMNeeded, const long virtualRAMNeeded);
@@ -20,10 +20,13 @@ public:
 
 	enum GameState { Uninitialized, ShowingSplash, Paused, ShowingMenu, Playing, Exiting };
 
-private:
-    //bool IsExiting();
-	//void GameLoop();
+	bool isExiting;
 
+private:
+	bool IsExiting();
+	void GameLoop(INT32 time);
+
+	GameObjectManager gameObjectManager;
 	GameState gameState;
-	sf::RenderWindow mainWindow; 
+	sf::RenderWindow mainWindow;
 };

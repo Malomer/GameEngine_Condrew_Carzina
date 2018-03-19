@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Process">
+      <UniqueIdentifier>{0748b0dd-33ce-4689-b2c5-4e46e85537e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Process">
+      <UniqueIdentifier>{ec2f187a-b97f-4d5d-96d7-5eaa53d357b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObject">
+      <UniqueIdentifier>{015f3431-e433-4686-80c2-6a898695445d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Component">
+      <UniqueIdentifier>{9a2e1740-c507-4e39-9741-c5d72cf46f2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Component">
+      <UniqueIdentifier>{58eceb7c-f12a-49d2-959a-69c63fe1114c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObject">
+      <UniqueIdentifier>{43cd1c09-b3d2-459b-8c36-bbb1363eb649}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Source\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\CondrewCarzina.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Process.cpp">
+      <Filter>Source Files\Process</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\ProcessManager.cpp">
+      <Filter>Source Files\Process</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\GameObject.cpp">
+      <Filter>Source Files\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\GameObjectManager.cpp">
+      <Filter>Source Files\GameObject</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Source\CondrewCarzina.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Process.h">
+      <Filter>Header Files\Process</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\ProcessManager.h">
+      <Filter>Header Files\Process</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\GameObject.h">
+      <Filter>Header Files\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\GameObjectManager.h">
+      <Filter>Header Files\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Component.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Transform.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
