@@ -68,9 +68,6 @@
     <ClInclude Include="..\Source\GameObject.h">
       <Filter>Header Files\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="..\Source\GameObjectManager.h">
-      <Filter>Header Files\GameObject</Filter>
-    </ClInclude>
     <ClInclude Include="..\Source\Component.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
@@ -81,6 +78,15 @@
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
     <ClInclude Include="..\Source\TransformComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\GameObjectManager.h">
+      <Filter>Header Files\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\InputComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\RenderComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
   </ItemGroup>

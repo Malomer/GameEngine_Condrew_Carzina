@@ -15,6 +15,12 @@ void GameObject::Destroy(void) {
 }
 
 void GameObject::Update(int deltaMs) {
+	if (parent) {
+		//transform.transform. = parent->transform * transform.transform.getMatrix();
+	} else {
+		//worldTransform = glm::mat4(1.0f) * transform.transformMatrix;
+	}
+
 	for (Components::iterator it = m_components.begin(); it != m_components.end(); ++it) {
 		it->second->VUpdate(deltaMs);
 	}

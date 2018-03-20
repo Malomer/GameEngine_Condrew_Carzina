@@ -1,4 +1,6 @@
 #include "CondrewCarzina.h"
+#include "InputComponent.h"
+
 #include <SFML/Graphics.hpp>
 
 void CondrewCarzina::Initialize() {
@@ -33,7 +35,7 @@ void CondrewCarzina::Start() {
 	sf::Clock clock;
 	while (!IsExiting()) {
 		sf::Time elapsed = clock.restart();
-		HandleInput(); // For testing
+		HandleInput();
 		GameLoop(clock.getElapsedTime().asMilliseconds());
 	}
 
@@ -50,6 +52,7 @@ std::string ExePath() {
 void CondrewCarzina::Setup() {
 	mainWindow.setVerticalSyncEnabled(true);
 	mainWindow.setKeyRepeatEnabled(false);
+
 	//C:\Users\Andrew\Documents\Github\GameEngine_Condrew_Carzina\GameEngine\Build\Debug
 	std::cout << "my directory is " << ExePath() << "\n";
 
@@ -62,6 +65,14 @@ void CondrewCarzina::Setup() {
 	backgroundSprite.setTexture(backgroundTexture);
 	backgroundSprite.setOrigin(backgroundSprite.getLocalBounds().width / 2, backgroundSprite.getLocalBounds().height / 2);
 	backgroundSprite.setPosition(mainWindow.getSize().x / 2, mainWindow.getSize().y / 2);
+
+	parent = gameObjectManager.CreateObject();
+	child = gameObjectManager.CreateObject();
+
+	child->SetParent(parent);
+
+	parent->AddComponent(StrongComponentPtr(new InputComponent(sf::Keyboard::Q)));
+	child->AddComponent(StrongComponentPtr(new InputComponent(sf::Keyboard::E)));
 }
 
 void CondrewCarzina::GameLoop(INT32 time) {
@@ -75,12 +86,9 @@ void CondrewCarzina::GameLoop(INT32 time) {
 		break;
 
 	case Playing:
-		UpdatePlaying();
+		UpdatePlaying(time);
 		break;
 	}
-
-	// Update //gameObjectManager.Update(time);
-	// Draw
 
 	mainWindow.display();
 }
@@ -89,8 +97,8 @@ void CondrewCarzina::UpdateSplash() {
 	mainWindow.draw(backgroundSprite);
 }
 
-void CondrewCarzina::UpdatePlaying() {
-
+void CondrewCarzina::UpdatePlaying(INT32 time) {
+	gameObjectManager.Update(time);
 }
 
 void CondrewCarzina::HandleInput() {

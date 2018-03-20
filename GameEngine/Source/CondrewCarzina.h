@@ -3,6 +3,8 @@
 #include "SFML/Graphics.hpp"
 #include "SFML/Graphics/Sprite.hpp"
 #include "GameObjectManager.h"
+#include "Imports.h"
+#include "GameObject.h"
 #include <direct.h>
 #include <windows.h>
 #include <stdio.h>
@@ -33,12 +35,17 @@ private:
 	void HandleInput();
 
 	void UpdateSplash();
-	void UpdatePlaying();
+	void UpdatePlaying(INT32 time);
 
+	// Splash
 	sf::Texture backgroundTexture;
 	sf::Sprite backgroundSprite;
 
-	//GameObjectManager gameObjectManager;
+	// Playing
+	GameObject *parent;
+	GameObject *child;
+
+	GameObjectManager gameObjectManager;
 	GameState gameState;
 	sf::RenderWindow mainWindow;
 };

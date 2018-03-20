@@ -8,18 +8,18 @@
 #include <iostream>
 
 typedef std::string GameObjectType;
+typedef std::map<ComponentId, StrongComponentPtr> Components;
 
 class GameObject {
 	
 public:
-
-	typedef std::map<ComponentId, StrongComponentPtr> Components;
+	TransformComponent transform;
 
 private:
 	GameObjectId m_id;
 	Components m_components;
 	GameObjectType m_type;
-	TransformComponent transform;
+	GameObject *parent;
 
 public:
 	explicit GameObject(GameObjectId id);
@@ -58,6 +58,9 @@ public:
 			return weak_ptr<ComponentType>();
 		}
 	}
+
+	void SetParent(GameObject *parent) { this->parent = parent; }
+	GameObject* GetParent() { return parent; }
 
 	const Components* GetComponents() { return &m_components; }
 

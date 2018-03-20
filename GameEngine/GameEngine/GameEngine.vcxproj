@@ -32,8 +32,10 @@
     <ClInclude Include="..\Source\GameObject.h" />
     <ClInclude Include="..\Source\GameObjectManager.h" />
     <ClInclude Include="..\Source\Imports.h" />
+    <ClInclude Include="..\Source\InputComponent.h" />
     <ClInclude Include="..\Source\Process.h" />
     <ClInclude Include="..\Source\ProcessManager.h" />
+    <ClInclude Include="..\Source\RenderComponent.h" />
     <ClInclude Include="..\Source\StringUtils.h" />
     <ClInclude Include="..\Source\TransformComponent.h" />
   </ItemGroup>
