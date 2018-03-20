@@ -25,7 +25,10 @@ public:
 
 private:
 	bool IsExiting();
-	void GameLoop(INT32 time);
+	void GameLoop(INT32 ms);
+
+	void Setup();
+	void HandleInput();
 
 	//GameObjectManager gameObjectManager;
 	GameState gameState;

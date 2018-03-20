@@ -4,6 +4,7 @@
 void CondrewCarzina::Initialize() {
 	gameState = GameState::Uninitialized;
 
+	// No minimum requirements yet
 	if (CheckStorage(0)) {
 		return;
 	}
@@ -23,20 +24,58 @@ void CondrewCarzina::Start() {
 	if (gameState != Uninitialized)
 		return;
 
-	mainWindow.create(sf::VideoMode(1024, 768, 32), "Testing");
+	mainWindow.create(sf::VideoMode(1024, 768), "Game Engine Test");
 	gameState = CondrewCarzina::Playing;
 	
+	Setup();
+
+	std::cout << "Started!" << std::endl;
 	sf::Clock clock;
 	while (!IsExiting()) {
 		sf::Time elapsed = clock.restart();
+		HandleInput(); // For testing
 		GameLoop(clock.getElapsedTime().asMilliseconds());
 	}
 
 	mainWindow.close();
 }
 
+void CondrewCarzina::Setup() {
+	mainWindow.setVerticalSyncEnabled(true);
+	mainWindow.setKeyRepeatEnabled(false);
+}
+
 void CondrewCarzina::GameLoop(INT32 time) {
-	//gameObjectManager.Update(time);
+	mainWindow.clear();
+
+	// Update //gameObjectManager.Update(time);
+	// Draw
+
+	mainWindow.display();
+}
+
+void CondrewCarzina::HandleInput() {
+	sf::Event event;
+
+	while (mainWindow.pollEvent(event)) {
+
+		switch (event.type) {
+			
+		case sf::Event::Closed:
+			mainWindow.close();
+			break;
+
+		case sf::Event::KeyPressed:
+			if (event.key.code == sf::Keyboard::A) {
+				if (gameState == GameState::ShowingSplash) {
+					gameState = GameState::Playing;
+				}
+			}
+			break;
+		default:
+			break;
+		}
+	}
 }
 
 bool CondrewCarzina::IsExiting() {
@@ -49,7 +88,7 @@ bool CondrewCarzina::CheckStorage(const long diskSpaceNeeded) {
 	_getdiskfree(drive, &diskfree);
 	unsigned __int64 const neededClusters = diskSpaceNeeded / (diskfree.sectors_per_cluster * diskfree.bytes_per_sector);
 	if (diskfree.avail_clusters < neededClusters) {
-		return false; // Not enough disk space
+		return false;
 	}
 	return true;
 }
@@ -71,7 +110,6 @@ bool CondrewCarzina::CheckMemory(const long physicalRAMNeeded, const long virtua
 	else {
 		std::cout << "CheckMemory: Not enough contiguous memory.";
 		return false;
-
 	}
 }
 

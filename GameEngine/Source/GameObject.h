@@ -2,6 +2,7 @@
 
 #include "Imports.h"
 #include "Component.h"
+#include "TransformComponent.h"
 #include <string>
 #include <map>
 #include <iostream>
@@ -18,6 +19,7 @@ private:
 	GameObjectId m_id;
 	Components m_components;
 	GameObjectType m_type;
+	TransformComponent transform;
 
 public:
 	explicit GameObject(GameObjectId id);
@@ -35,9 +37,9 @@ public:
 		ActorComponents::iterator findIt = m_components.find(id);
 		if (findIt != m_components.end()) {
 			StrongActorComponentPtr pBase(findIt->second);
-			shared_ptr<ComponentType> pSub(static_pointer_cast<ComponentType>(pBase));  // cast to subclass version of the pointer
-			weak_ptr<ComponentType> pWeakSub(pSub);  // convert strong pointer to weak pointer
-			return pWeakSub;  // return the weak pointer
+			shared_ptr<ComponentType> pSub(static_pointer_cast<ComponentType>(pBase));
+			weak_ptr<ComponentType> pWeakSub(pSub);
+			return pWeakSub;
 		} else {
 			return weak_ptr<ComponentType>();
 		}
@@ -49,9 +51,9 @@ public:
 		ActorComponents::iterator findIt = m_components.find(id);
 		if (findIt != m_components.end()) {
 			StrongActorComponentPtr pBase(findIt->second);
-			shared_ptr<ComponentType> pSub(static_pointer_cast<ComponentType>(pBase));  // cast to subclass version of the pointer
-			weak_ptr<ComponentType> pWeakSub(pSub);  // convert strong pointer to weak pointer
-			return pWeakSub;  // return the weak pointer
+			shared_ptr<ComponentType> pSub(static_pointer_cast<ComponentType>(pBase));
+			weak_ptr<ComponentType> pWeakSub(pSub);
+			return pWeakSub;
 		} else {
 			return weak_ptr<ComponentType>();
 		}
