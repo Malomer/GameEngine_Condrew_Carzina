@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SFML/Graphics.hpp"
+#include "SFML/Graphics/Sprite.hpp"
 #include "GameObjectManager.h"
 #include <direct.h>
 #include <windows.h>
@@ -21,6 +22,7 @@ public:
 
 	enum GameState { Uninitialized, ShowingSplash, Paused, ShowingMenu, Playing, Exiting };
 
+	std::string assetsPath = "Assets/";
 	bool isExiting;
 
 private:
@@ -29,6 +31,12 @@ private:
 
 	void Setup();
 	void HandleInput();
+
+	void UpdateSplash();
+	void UpdatePlaying();
+
+	sf::Texture backgroundTexture;
+	sf::Sprite backgroundSprite;
 
 	//GameObjectManager gameObjectManager;
 	GameState gameState;

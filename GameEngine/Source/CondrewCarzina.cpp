@@ -13,7 +13,7 @@ void CondrewCarzina::Initialize() {
 		return;
 	}
 
-	if (ReadCPUSpeed() > 0) {
+	if (ReadCPUSpeed() < 0) {
 		return;
 	}
 
@@ -25,7 +25,7 @@ void CondrewCarzina::Start() {
 		return;
 
 	mainWindow.create(sf::VideoMode(1024, 768), "Game Engine Test");
-	gameState = CondrewCarzina::Playing;
+	gameState = GameState::ShowingSplash;
 	
 	Setup();
 
@@ -40,18 +40,61 @@ void CondrewCarzina::Start() {
 	mainWindow.close();
 }
 
+std::string ExePath() {
+	char buffer[MAX_PATH];
+	GetModuleFileName(NULL, buffer, MAX_PATH);
+	std::string::size_type pos = std::string(buffer).find_last_of("\\/");
+	return std::string(buffer).substr(0, pos);
+}
+
 void CondrewCarzina::Setup() {
 	mainWindow.setVerticalSyncEnabled(true);
 	mainWindow.setKeyRepeatEnabled(false);
+	//C:\Users\Andrew\Documents\Github\GameEngine_Condrew_Carzina\GameEngine\Build\Debug
+	std::cout << "my directory is " << ExePath() << "\n";
+
+	if (backgroundTexture.loadFromFile("C:\\Users\\Andrew\\Documents\\Github\\GameEngine_Condrew_Carzina\\GameEngine\\Build\\Debug\\Assets\\texture.jpg")) {
+		std::cout << "FOUND THE FILE" << std::endl;
+	} else {
+		std::cout << "DID NOT FOUND THE FILE" << std::endl;
+	}
+
+	backgroundSprite.setTexture(backgroundTexture);
+	backgroundSprite.setOrigin(
+		backgroundSprite.getLocalBounds().width / 2,
+		backgroundSprite.getLocalBounds().height / 2);
+	backgroundSprite.setPosition(
+		mainWindow.getSize().x / 2,
+		mainWindow.getSize().y / 2);
 }
 
 void CondrewCarzina::GameLoop(INT32 time) {
 	mainWindow.clear();
 
+	std::cout << gameState;
+
+	switch (gameState) {
+	case ShowingSplash:
+		UpdateSplash();
+		break;
+
+	case Playing:
+		UpdatePlaying();
+		break;
+	}
+
 	// Update //gameObjectManager.Update(time);
 	// Draw
 
 	mainWindow.display();
+}
+
+void CondrewCarzina::UpdateSplash() {
+	mainWindow.draw(backgroundSprite);
+}
+
+void CondrewCarzina::UpdatePlaying() {
+
 }
 
 void CondrewCarzina::HandleInput() {
