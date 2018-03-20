@@ -1,40 +1,63 @@
 #pragma once
 
-#include <stdio.h>
-#include <iostream>
-#include <list>
-#include <vector>
-#include <iterator>
-
+#include "Imports.h"
 #include "Component.h"
+#include <string>
+#include <map>
+#include <iostream>
+
+typedef std::string GameObjectType;
 
 class GameObject {
+	
+public:
+
+	typedef std::map<ComponentId, StrongComponentPtr> Components;
+
+private:
+	GameObjectId m_id;
+	Components m_components;
+	GameObjectType m_type;
 
 public:
-	GameObject(int uniqueID) : m_UniqueID(uniqueID), m_Parent(NULL) {
+	explicit GameObject(GameObjectId id);
+	~GameObject(void);
+
+	bool Init();
+	void Destroy(void);
+	void Update(int deltaMs);
+
+	GameObjectId GetId(void) const { return m_id; }
+	GameObjectType GetType(void) const { return m_type; }
+
+	template <class ComponentType>
+	std::weak_ptr<ComponentType> GetComponent(ComponentId id) {
+		ActorComponents::iterator findIt = m_components.find(id);
+		if (findIt != m_components.end()) {
+			StrongActorComponentPtr pBase(findIt->second);
+			shared_ptr<ComponentType> pSub(static_pointer_cast<ComponentType>(pBase));  // cast to subclass version of the pointer
+			weak_ptr<ComponentType> pWeakSub(pSub);  // convert strong pointer to weak pointer
+			return pWeakSub;  // return the weak pointer
+		} else {
+			return weak_ptr<ComponentType>();
+		}
 	}
 
-	int GetObjectID() const { return m_UniqueID; }
+	template <class ComponentType>
+	std::weak_ptr<ComponentType> GetComponent(const char *name) {
+		ComponentId id = ActorComponent::GetIdFromName(name);
+		ActorComponents::iterator findIt = m_components.find(id);
+		if (findIt != m_components.end()) {
+			StrongActorComponentPtr pBase(findIt->second);
+			shared_ptr<ComponentType> pSub(static_pointer_cast<ComponentType>(pBase));  // cast to subclass version of the pointer
+			weak_ptr<ComponentType> pWeakSub(pSub);  // convert strong pointer to weak pointer
+			return pWeakSub;  // return the weak pointer
+		} else {
+			return weak_ptr<ComponentType>();
+		}
+	}
 
-	void AddComponent(Component* component);
+	const Components* GetComponents() { return &m_components; }
 
-	void SetParent(GameObject& parent) { m_Parent = &parent; }
-	void AddChild(GameObject* child);
-
-	void Update(float msec);
-	void Awake();
-	void Start();
-	void LateUpdate(float msec);
-
-public: // Members
-	//Transform transform;    //local transform
-
-protected: // Members
-	int m_UniqueID;
-
-	GameObject* m_Parent;
-	std::vector<GameObject*> m_Children;
-
-	//glm::mat4 worldTransform;
-	std::vector<Component*> m_Components;
+	void AddComponent(StrongComponentPtr pComponent);
 };

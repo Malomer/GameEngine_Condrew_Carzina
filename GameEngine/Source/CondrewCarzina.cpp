@@ -29,14 +29,14 @@ void CondrewCarzina::Start() {
 	sf::Clock clock;
 	while (!IsExiting()) {
 		sf::Time elapsed = clock.restart();
-		GameLoop(clock.getElapsedTime().asMilliseconds);
+		GameLoop(clock.getElapsedTime().asMilliseconds());
 	}
 
 	mainWindow.close();
 }
 
 void CondrewCarzina::GameLoop(INT32 time) {
-	gameObjectManager.Update(time);
+	//gameObjectManager.Update(time);
 }
 
 bool CondrewCarzina::IsExiting() {

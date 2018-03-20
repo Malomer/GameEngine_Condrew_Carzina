@@ -1,7 +1,8 @@
 #include "GameObjectManager.h"
 
-int GameObjectManager::nextObjectID = 0;
+//int GameObjectManager::nextObjectID = 0;
 
+/*
 void GameObjectManager::Awake() {
 	for (std::map<int, GameObject*>::iterator i = m_Objects.begin(); i != m_Objects.end(); ++i) {
 		(i->second)->Awake();
@@ -33,3 +34,4 @@ GameObject* GameObjectManager::CreateObject()
 
 	return newObj;
 }
+*/

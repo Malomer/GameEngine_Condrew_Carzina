@@ -1,5 +1,7 @@
 #pragma once
 
+/*
+#include <map>
 #include "GameObject.h"
 
 class GameObjectManager {
@@ -15,4 +17,4 @@ public:
 private:
 	std::map<int, GameObject*> m_Objects;
 	static int nextObjectID;
-};
+};*/

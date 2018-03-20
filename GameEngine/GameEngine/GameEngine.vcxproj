@@ -31,8 +31,10 @@
     <ClInclude Include="..\Source\CondrewCarzina.h" />
     <ClInclude Include="..\Source\GameObject.h" />
     <ClInclude Include="..\Source\GameObjectManager.h" />
+    <ClInclude Include="..\Source\Imports.h" />
     <ClInclude Include="..\Source\Process.h" />
     <ClInclude Include="..\Source\ProcessManager.h" />
+    <ClInclude Include="..\Source\StringUtils.h" />
     <ClInclude Include="..\Source\Transform.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -86,7 +88,16 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)Build\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Temp\$(Configuration)\$(PlatformName)\</IntDir>
+    <TargetName>$(ProjectName)-$(Configuration)-$(PlatformName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)Build\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Temp\$(Configuration)\$(PlatformName)\</IntDir>
+    <TargetName>$(ProjectName)-$(Configuration)-$(PlatformName)</TargetName>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>

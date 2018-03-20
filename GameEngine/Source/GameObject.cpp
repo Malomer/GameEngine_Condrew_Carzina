@@ -1,40 +1,25 @@
+
 #include "GameObject.h"
 
-void GameObject::Awake() {
-	for (std::vector<Component*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i) {
-		(*i)->Awake();
+GameObject::GameObject(GameObjectId id) {
+	m_id = id;
+	m_type = "Unknown";
+}
+
+GameObject::~GameObject(void) {
+	std::cout << "Destoryed Game Object Id: " << m_id << std::endl;
+}
+
+void GameObject::Destroy(void) {
+	m_components.clear();
+}
+
+void GameObject::Update(int deltaMs) {
+	for (Components::iterator it = m_components.begin(); it != m_components.end(); ++it) {
+		it->second.reset();
 	}
 }
 
-void GameObject::Start() {
-	for (std::vector<Component*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i) {
-		(*i)->Start();
-	}
-}
-
-void GameObject::Update(float msec) {
-	if (m_Parent) { 
-		worldTransform = m_Parent->worldTransform * transform.transformMatrix;
-	}
-	else { 
-		worldTransform = glm::mat4(1.0f) * transform.transformMatrix;
-	}
-
-	for (std::vector<Component*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i) {
-		(*i)->Update();
-	}
-}
-
-void GameObject::LateUpdate(float msec) {
-	for (std::vector<Component*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i) {
-		(*i)->LateUpdate();
-	}
-}
-
-void GameObject::AddComponent(Component* component) {
-	m_Components.push_back(component);
-}
-
-void GameObject::AddChild(GameObject* child) {
-	m_Children.push_back(child);
+void GameObject::AddComponent(StrongComponentPtr pComponent) {
+	//std::pair<ActorComponents::iterator, bool> success = m_components.insert(std::make_pair(pComponent->VGetId(), pComponent));
 }

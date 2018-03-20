@@ -6,6 +6,7 @@
 #include <windows.h>
 #include <stdio.h>
 #include <tchar.h>
+#include <stdint.h>
 #include <iostream>
 
 class CondrewCarzina {
@@ -26,7 +27,7 @@ private:
 	bool IsExiting();
 	void GameLoop(INT32 time);
 
-	GameObjectManager gameObjectManager;
+	//GameObjectManager gameObjectManager;
 	GameState gameState;
 	sf::RenderWindow mainWindow;
 };

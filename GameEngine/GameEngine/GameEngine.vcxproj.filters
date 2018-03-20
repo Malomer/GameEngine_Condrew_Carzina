@@ -31,6 +31,9 @@
     <Filter Include="Source Files\GameObject">
       <UniqueIdentifier>{43cd1c09-b3d2-459b-8c36-bbb1363eb649}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{dc987f06-4468-415c-b5b9-524c3bf57edc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Source\main.cpp">
@@ -73,6 +76,12 @@
     </ClInclude>
     <ClInclude Include="..\Source\Transform.h">
       <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\StringUtils.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Imports.h">
+      <Filter>Header Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
