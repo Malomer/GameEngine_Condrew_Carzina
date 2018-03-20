@@ -60,12 +60,8 @@ void CondrewCarzina::Setup() {
 	}
 
 	backgroundSprite.setTexture(backgroundTexture);
-	backgroundSprite.setOrigin(
-		backgroundSprite.getLocalBounds().width / 2,
-		backgroundSprite.getLocalBounds().height / 2);
-	backgroundSprite.setPosition(
-		mainWindow.getSize().x / 2,
-		mainWindow.getSize().y / 2);
+	backgroundSprite.setOrigin(backgroundSprite.getLocalBounds().width / 2, backgroundSprite.getLocalBounds().height / 2);
+	backgroundSprite.setPosition(mainWindow.getSize().x / 2, mainWindow.getSize().y / 2);
 }
 
 void CondrewCarzina::GameLoop(INT32 time) {
