@@ -56,7 +56,7 @@ void CondrewCarzina::Setup() {
 	//C:\Users\Andrew\Documents\Github\GameEngine_Condrew_Carzina\GameEngine\Build\Debug
 	std::cout << "my directory is " << ExePath() << "\n";
 
-	if (backgroundTexture.loadFromFile("C:\\Users\\Andrew\\Documents\\Github\\GameEngine_Condrew_Carzina\\GameEngine\\Build\\Debug\\Assets\\texture.jpg")) {
+	if (backgroundTexture.loadFromFile("Assets\\texture.jpg")) {
 		std::cout << "FOUND THE FILE" << std::endl;
 	} else {
 		std::cout << "DID NOT FOUND THE FILE" << std::endl;
