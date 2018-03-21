@@ -3,6 +3,7 @@
 #include "Imports.h"
 #include "Component.h"
 #include "TransformComponent.h"
+#include "Matrices.h"
 #include <string>
 #include <map>
 #include <iostream>
@@ -14,15 +15,18 @@ class GameObject {
 	
 public:
 	TransformComponent transform;
+	Matrix4 worldTransform;
 
 private:
 	GameObjectId m_id;
 	Components m_components;
 	GameObjectType m_type;
 	GameObject *parent;
+	
 
 public:
 	explicit GameObject(GameObjectId id);
+	explicit GameObject(GameObjectId id, std::string name);
 	~GameObject(void);
 
 	bool Init();

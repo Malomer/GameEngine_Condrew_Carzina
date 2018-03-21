@@ -1,12 +1,15 @@
 #include "CondrewCarzina.h"
-#include "InputComponent.h"
+#include "RenderComponent.h"
+
+#include "ChildInput.h"
+#include "ParentInput.h"
 
 #include <SFML/Graphics.hpp>
 
 void CondrewCarzina::Initialize() {
 	gameState = GameState::Uninitialized;
 
-	// No minimum requirements yet
+	// No minimum requirements yet TODO: Change this later
 	if (CheckStorage(0)) {
 		return;
 	}
@@ -31,11 +34,11 @@ void CondrewCarzina::Start() {
 	
 	Setup();
 
-	std::cout << "Started!" << std::endl;
+	std::cout << "Passed Initialization! Starting game loop" << std::endl;
 	sf::Clock clock;
 	while (!IsExiting()) {
 		sf::Time elapsed = clock.restart();
-		HandleInput();
+		HandleEvents();
 		GameLoop(clock.getElapsedTime().asMilliseconds());
 	}
 
@@ -57,28 +60,26 @@ void CondrewCarzina::Setup() {
 	std::cout << "my directory is " << ExePath() << "\n";
 
 	if (backgroundTexture.loadFromFile("C:\\Users\\Andrew\\Documents\\Github\\GameEngine_Condrew_Carzina\\GameEngine\\Build\\Debug\\Assets\\texture.jpg")) {
-		std::cout << "FOUND THE FILE" << std::endl;
-	} else {
-		std::cout << "DID NOT FOUND THE FILE" << std::endl;
+
 	}
 
+	// Setup Splash Screen
 	backgroundSprite.setTexture(backgroundTexture);
-	backgroundSprite.setOrigin(backgroundSprite.getLocalBounds().width / 2, backgroundSprite.getLocalBounds().height / 2);
-	backgroundSprite.setPosition(mainWindow.getSize().x / 2, mainWindow.getSize().y / 2);
+	backgroundSprite.setOrigin(backgroundSprite.getLocalBounds().width / 2.f, backgroundSprite.getLocalBounds().height / 2.f);
+	backgroundSprite.setPosition(mainWindow.getSize().x / 2.f, mainWindow.getSize().y / 2.f);
 
-	parent = gameObjectManager.CreateObject();
-	child = gameObjectManager.CreateObject();
+	// Setup Playing Screen
+	parent = gameObjectManager.CreateObject("Parent");
+	child = gameObjectManager.CreateObject("Child");
 
 	child->SetParent(parent);
 
-	parent->AddComponent(StrongComponentPtr(new InputComponent(sf::Keyboard::Q)));
-	child->AddComponent(StrongComponentPtr(new InputComponent(sf::Keyboard::E)));
+	parent->AddComponent(StrongComponentPtr(new ParentInput(mainWindow)));
+	child->AddComponent(StrongComponentPtr(new ChildInput(mainWindow)));
 }
 
 void CondrewCarzina::GameLoop(INT32 time) {
 	mainWindow.clear();
-
-	std::cout << gameState;
 
 	switch (gameState) {
 	case ShowingSplash:
@@ -101,7 +102,7 @@ void CondrewCarzina::UpdatePlaying(INT32 time) {
 	gameObjectManager.Update(time);
 }
 
-void CondrewCarzina::HandleInput() {
+void CondrewCarzina::HandleEvents() {
 	sf::Event event;
 
 	while (mainWindow.pollEvent(event)) {

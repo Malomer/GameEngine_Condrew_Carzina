@@ -2,15 +2,13 @@
 
 #include "Component.h"
 #include "SFML/Graphics.hpp"
+#include "Matrices.h"
 
 class TransformComponent : public Component {
 
 public:
-	sf::Transform transform;
+	
+	Matrix4 transformMatrix;
 
 	virtual const char *VGetName() const { return "Transform"; }
-
-	TransformComponent(void) { 
-		transform = sf::Transform::Identity;
-	}
 };

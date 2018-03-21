@@ -6,6 +6,11 @@ GameObject::GameObject(GameObjectId id) {
 	m_type = "Unknown";
 }
 
+GameObject::GameObject(GameObjectId id, std::string name) {
+	m_id = id;
+	m_type = name.c_str();
+}
+
 GameObject::~GameObject(void) {
 	std::cout << "Destoryed Game Object Id: " << m_id << std::endl;
 }
@@ -16,9 +21,11 @@ void GameObject::Destroy(void) {
 
 void GameObject::Update(int deltaMs) {
 	if (parent) {
-		//transform.transform. = parent->transform * transform.transform.getMatrix();
+		worldTransform = parent->worldTransform * transform.transformMatrix;
+		//transform.transformMatrix = parent->transform.transformMatrix * transform.transformMatrix;
 	} else {
-		//worldTransform = glm::mat4(1.0f) * transform.transformMatrix;
+		//transform.transformMatrix = 1 * transform.transformMatrix;
+		worldTransform = 1 * transform.transformMatrix;
 	}
 
 	for (Components::iterator it = m_components.begin(); it != m_components.end(); ++it) {

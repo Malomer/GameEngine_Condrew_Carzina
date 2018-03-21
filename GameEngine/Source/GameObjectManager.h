@@ -7,7 +7,7 @@ class GameObjectManager {
 
 	friend class GameObject;
 public:
-	GameObject* CreateObject();
+	GameObject* CreateObject(std::string name = "Unknown");
 
 	void Update(float msec);
 	GameObjectId GetNextId() { return nextObjectID++; }

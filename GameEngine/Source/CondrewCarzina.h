@@ -32,7 +32,7 @@ private:
 	void GameLoop(INT32 ms);
 
 	void Setup();
-	void HandleInput();
+	void HandleEvents();
 
 	void UpdateSplash();
 	void UpdatePlaying(INT32 time);

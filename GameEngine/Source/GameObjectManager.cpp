@@ -8,8 +8,8 @@ void GameObjectManager::Update(float msec) {
 	}
 }
 
-GameObject* GameObjectManager::CreateObject() {
-	GameObject* newObj = new GameObject(nextObjectID++);
+GameObject* GameObjectManager::CreateObject(std::string name) {
+	GameObject* newObj = new GameObject(nextObjectID++, name);
 	m_Objects[GetNextId()] = newObj;
 
 	return newObj;

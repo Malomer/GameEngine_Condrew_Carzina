@@ -7,15 +7,19 @@ class RenderComponent : public Component {
 
 public:
 
-	sf::Transform transform;
+	sf::CircleShape circle;
+	sf::RenderWindow *mainWindow;
+
 	virtual const char *VGetName() const { return "Render"; }
 
-	RenderComponent() {
-		transform = m_pOwner->transform.transform;
+	RenderComponent(sf::RenderWindow &mainWindow, sf::Color color) {
+		this->mainWindow = &mainWindow;
+
+		circle.setRadius(40);
+		circle.setFillColor(color);
 	}
 
 	virtual void VUpdate(int deltaMs) {
-	
-
+		mainWindow->draw(circle);
 	}
 };

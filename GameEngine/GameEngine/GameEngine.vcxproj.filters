@@ -34,6 +34,12 @@
     <Filter Include="Header Files\Utils">
       <UniqueIdentifier>{dc987f06-4468-415c-b5b9-524c3bf57edc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Component\Test">
+      <UniqueIdentifier>{3eeabc12-dc41-48d1-8f89-a14ba892a649}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{84dc25e9-fb3a-4a86-a4ec-f4fc9df5ede6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Source\main.cpp">
@@ -53,6 +59,9 @@
     </ClCompile>
     <ClCompile Include="..\Source\GameObjectManager.cpp">
       <Filter>Source Files\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Matrices.cpp">
+      <Filter>Source Files\Utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +97,18 @@
     </ClInclude>
     <ClInclude Include="..\Source\RenderComponent.h">
       <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\ChildInput.h">
+      <Filter>Header Files\Component\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\ParentInput.h">
+      <Filter>Header Files\Component\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Vectors.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Matrices.h">
+      <Filter>Header Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
