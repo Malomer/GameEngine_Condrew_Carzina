@@ -19,27 +19,45 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Source\Ball.cpp" />
     <ClCompile Include="..\Source\CondrewCarzina.cpp" />
     <ClCompile Include="..\Source\GameObject.cpp" />
     <ClCompile Include="..\Source\GameObjectManager.cpp" />
+    <ClCompile Include="..\Source\GameScreen.cpp" />
     <ClCompile Include="..\Source\main.cpp" />
+    <ClCompile Include="..\Source\MainMenu.cpp" />
     <ClCompile Include="..\Source\Matrices.cpp" />
+    <ClCompile Include="..\Source\PingPongPing.cpp" />
+    <ClCompile Include="..\Source\Player.cpp" />
     <ClCompile Include="..\Source\Process.cpp" />
     <ClCompile Include="..\Source\ProcessManager.cpp" />
+    <ClCompile Include="..\Source\SplashScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Source\Ball.h" />
     <ClInclude Include="..\Source\ChildInput.h" />
     <ClInclude Include="..\Source\Component.h" />
     <ClInclude Include="..\Source\CondrewCarzina.h" />
     <ClInclude Include="..\Source\GameObject.h" />
     <ClInclude Include="..\Source\GameObjectManager.h" />
+    <ClInclude Include="..\Source\GameScreen.h" />
     <ClInclude Include="..\Source\Imports.h" />
     <ClInclude Include="..\Source\InputComponent.h" />
+    <ClInclude Include="..\Source\MainMenu.h" />
     <ClInclude Include="..\Source\Matrices.h" />
     <ClInclude Include="..\Source\ParentInput.h" />
+    <ClInclude Include="..\Source\PowerupType.h" />
+    <ClInclude Include="..\Source\PingPongPing.h" />
+    <ClInclude Include="..\Source\Player.h" />
+    <ClInclude Include="..\Source\Powerup.h" />
     <ClInclude Include="..\Source\Process.h" />
     <ClInclude Include="..\Source\ProcessManager.h" />
     <ClInclude Include="..\Source\RenderComponent.h" />
+    <ClInclude Include="..\Source\Scene.h" />
+    <ClInclude Include="..\Source\SceneManager.h" />
+    <ClInclude Include="..\Source\SlowDownPowerup.h" />
+    <ClInclude Include="..\Source\SpeedUpPowerup.h" />
+    <ClInclude Include="..\Source\SplashScreen.h" />
     <ClInclude Include="..\Source\StringUtils.h" />
     <ClInclude Include="..\Source\TransformComponent.h" />
     <ClInclude Include="..\Source\Vectors.h" />

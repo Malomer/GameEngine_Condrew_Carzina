@@ -17,6 +17,7 @@ GameObject::~GameObject(void) {
 
 void GameObject::Destroy(void) {
 	m_components.clear();
+	delete this;
 }
 
 void GameObject::Update(int deltaMs) {

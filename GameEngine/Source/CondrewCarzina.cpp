@@ -7,12 +7,17 @@
 #include <SFML/Graphics.hpp>
 
 void CondrewCarzina::Initialize() {
+	printf("Made it here\n");
 	gameState = GameState::Uninitialized;
 
 	// No minimum requirements yet TODO: Change this later
+
+	/*
+		Storage is not required for the game to run.
 	if (CheckStorage(0)) {
 		return;
 	}
+	*/
 
 	if (CheckMemory(0, 0)) {
 		return;
@@ -26,20 +31,23 @@ void CondrewCarzina::Initialize() {
 }
 
 void CondrewCarzina::Start() {
-	if (gameState != Uninitialized)
-		return;
+	//if (gameState != Uninitialized)
+	//	return;
 
-	mainWindow.create(sf::VideoMode(1024, 768), "Game Engine Test");
+	mainWindow.create(sf::VideoMode(1024, 768), "Ping Pong Ping");
 	gameState = GameState::ShowingSplash;
 	
 	Setup();
 
-	std::cout << "Passed Initialization! Starting game loop" << std::endl;
+	printf("Done setup! Starting game loop...\n");
 	sf::Clock clock;
-	while (!IsExiting()) {
+	//while (!IsExiting()) {
+	while (true) {
 		sf::Time elapsed = clock.restart();
 		HandleEvents();
-		GameLoop(clock.getElapsedTime().asMilliseconds());
+		GameLoop(elapsed.asMilliseconds());
+		Render();
+		//GameLoop(clock.getElapsedTime().asMilliseconds());
 	}
 
 	mainWindow.close();
@@ -112,13 +120,14 @@ void CondrewCarzina::HandleEvents() {
 			mainWindow.close();
 			break;
 
+		/*
 		case sf::Event::KeyPressed:
 			if (event.key.code == sf::Keyboard::A) {
 				if (gameState == GameState::ShowingSplash) {
 					gameState = GameState::Playing;
 				}
 			}
-			break;
+			break;*/
 		default:
 			break;
 		}
@@ -152,9 +161,10 @@ bool CondrewCarzina::CheckMemory(const long physicalRAMNeeded, const long virtua
 		return false;
 	}
 	char *buff = new char[virtualRAMNeeded];
-	if (buff)
+	if (buff) {
 		delete[] buff;
-	else {
+		return true;
+	} else {
 		std::cout << "CheckMemory: Not enough contiguous memory.";
 		return false;
 	}

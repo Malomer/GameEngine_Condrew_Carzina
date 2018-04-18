@@ -8,6 +8,13 @@ void GameObjectManager::Update(float msec) {
 	}
 }
 
+void GameObjectManager::Render() {
+	/*
+	for (std::map<int, GameObject*>::iterator i = m_Objects.begin(); i != m_Objects.end(); ++i) {
+		(i->second)->Update(msec);
+	}*/
+}
+
 GameObject* GameObjectManager::CreateObject(std::string name) {
 	GameObject* newObj = new GameObject(nextObjectID++, name);
 	m_Objects[GetNextId()] = newObj;

@@ -32,6 +32,7 @@ public:
 	bool Init();
 	void Destroy(void);
 	void Update(int deltaMs);
+	void VRender() { }
 
 	GameObjectId GetId(void) const { return m_id; }
 	GameObjectType GetType(void) const { return m_type; }

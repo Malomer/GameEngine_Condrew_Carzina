@@ -40,6 +40,30 @@
     <Filter Include="Source Files\Utils">
       <UniqueIdentifier>{84dc25e9-fb3a-4a86-a4ec-f4fc9df5ede6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\PingPongPing">
+      <UniqueIdentifier>{3028a3ba-089b-41a5-a3c9-4bebf60f4acd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\PingPongPing">
+      <UniqueIdentifier>{d89ec408-e0e6-435c-a9a4-261fde60aa33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\PingPongPing\Components">
+      <UniqueIdentifier>{96e0a0f4-9b41-463b-ba41-825f8aebad85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\PingPongPing\Powerups">
+      <UniqueIdentifier>{b42655eb-f394-42c2-a9b2-5782d559db94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\PingPongPing\Components">
+      <UniqueIdentifier>{22c9db1f-f175-4d75-a152-7a959ce40054}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\PingPongPing\Powerups">
+      <UniqueIdentifier>{4cc659ba-5111-4ecf-b531-e697627d5aae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\PingPongPing\Scenes">
+      <UniqueIdentifier>{63056f3b-f7b7-47f3-bbe3-c3a9338f30a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\PingPongPing\Scenes">
+      <UniqueIdentifier>{fc38dfc9-7d04-4591-986b-ac320716da21}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Source\main.cpp">
@@ -62,6 +86,24 @@
     </ClCompile>
     <ClCompile Include="..\Source\Matrices.cpp">
       <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\PingPongPing.cpp">
+      <Filter>Source Files\PingPongPing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\GameScreen.cpp">
+      <Filter>Source Files\PingPongPing\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\MainMenu.cpp">
+      <Filter>Source Files\PingPongPing\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\SplashScreen.cpp">
+      <Filter>Source Files\PingPongPing\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Player.cpp">
+      <Filter>Source Files\PingPongPing\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Ball.cpp">
+      <Filter>Source Files\PingPongPing\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +151,42 @@
     </ClInclude>
     <ClInclude Include="..\Source\Matrices.h">
       <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\PingPongPing.h">
+      <Filter>Header Files\PingPongPing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\SpeedUpPowerup.h">
+      <Filter>Header Files\PingPongPing\Powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\SlowDownPowerup.h">
+      <Filter>Header Files\PingPongPing\Powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Player.h">
+      <Filter>Header Files\PingPongPing\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Powerup.h">
+      <Filter>Header Files\PingPongPing\Powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\SplashScreen.h">
+      <Filter>Header Files\PingPongPing\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\MainMenu.h">
+      <Filter>Header Files\PingPongPing\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\GameScreen.h">
+      <Filter>Header Files\PingPongPing\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Ball.h">
+      <Filter>Header Files\PingPongPing\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\PowerupType.h">
+      <Filter>Header Files\PingPongPing\Powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Scene.h">
+      <Filter>Header Files\PingPongPing\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\SceneManager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
-#include "CondrewCarzina.h"
+#include "PingPongPing.h"
 
 int main() {
-	CondrewCarzina engine;
+	PingPongPing engine;
 	engine.Initialize();
 	engine.Start();
 	return 0;

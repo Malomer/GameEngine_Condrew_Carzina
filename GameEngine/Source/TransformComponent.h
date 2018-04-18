@@ -4,11 +4,11 @@
 #include "SFML/Graphics.hpp"
 #include "Matrices.h"
 
-class TransformComponent : public Component {
+class TransformComponent  {//: public Component
 
 public:
 	
 	Matrix4 transformMatrix;
 
-	virtual const char *VGetName() const { return "Transform"; }
+	//virtual const char *VGetName() const { return "Transform"; }
 };

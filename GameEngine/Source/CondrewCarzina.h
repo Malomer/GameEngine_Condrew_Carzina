@@ -26,12 +26,14 @@ public:
 
 	std::string assetsPath = "Assets/";
 	bool isExiting;
+	sf::RenderWindow mainWindow;
 
 private:
 	bool IsExiting();
-	void GameLoop(INT32 ms);
+	virtual void GameLoop(INT32 ms);
+	virtual void Render() { }
 
-	void Setup();
+	virtual void Setup();
 	void HandleEvents();
 
 	void UpdateSplash();
@@ -47,5 +49,5 @@ private:
 
 	GameObjectManager gameObjectManager;
 	GameState gameState;
-	sf::RenderWindow mainWindow;
+	
 };

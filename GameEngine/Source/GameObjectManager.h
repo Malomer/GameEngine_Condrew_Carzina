@@ -10,6 +10,7 @@ public:
 	GameObject* CreateObject(std::string name = "Unknown");
 
 	void Update(float msec);
+	void Render();
 	GameObjectId GetNextId() { return nextObjectID++; }
 
 private:
