@@ -10,19 +10,21 @@ void PingPongPing::Setup() {
 
 	// Register scenes
 	SceneManager::RegisterScene(new SplashScreen(mainWindow));
-	//SceneManager::RegisterScene(new MainMenu(mainWindow));
-	//SceneManager::RegisterScene(new GameScreen(mainWindow));
+	SceneManager::RegisterScene(new MainMenu(mainWindow));
+	SceneManager::RegisterScene(new GameScreen(mainWindow));
 	
 	// Show splash screen
 	printf("Showing Splash...\n");
-	//SceneManager::LoadScene("Splash");
+	SceneManager::LoadScene("Splash");
 }
 
 void PingPongPing::GameLoop(INT32 ms) {
-	//SceneManager::GetActiveScene().update(ms);
+	SceneManager::activeScene->update(ms);
 }
 
 void PingPongPing::Render() {
-	//SceneManager::GetActiveScene().draw();
+	mainWindow.clear();
+	SceneManager::activeScene->draw();
+	mainWindow.display();
 }
 

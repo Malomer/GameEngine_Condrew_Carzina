@@ -105,6 +105,9 @@
     <ClCompile Include="..\Source\Ball.cpp">
       <Filter>Source Files\PingPongPing\Components</Filter>
     </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Source\CondrewCarzina.h">
