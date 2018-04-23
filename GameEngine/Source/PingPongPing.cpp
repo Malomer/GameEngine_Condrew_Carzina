@@ -6,6 +6,9 @@
 #include "SceneManager.h"
 
 void PingPongPing::Setup() {
+	mainWindow.setVerticalSyncEnabled(true);
+	mainWindow.setKeyRepeatEnabled(false);
+
 	printf("Registering Scenes...\n");
 
 	// Register scenes

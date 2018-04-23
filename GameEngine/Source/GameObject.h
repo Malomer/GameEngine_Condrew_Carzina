@@ -23,7 +23,6 @@ private:
 	GameObjectType m_type;
 	GameObject *parent;
 	
-
 public:
 	explicit GameObject(GameObjectId id);
 	explicit GameObject(GameObjectId id, std::string name);

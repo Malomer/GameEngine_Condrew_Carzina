@@ -2,8 +2,8 @@
 
 #include "StringUtils.h"
 #include "GameObject.h"
-#include <memory>
 #include "Imports.h"
+#include <memory>
 
 class Component {
 

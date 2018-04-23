@@ -6,6 +6,8 @@ void Player::VUpdate(int deltaMs) {
 }
 
 void Player::HandleInput() {
+
+
 	if(playerNumber == 1) {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 

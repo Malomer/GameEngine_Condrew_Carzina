@@ -2,6 +2,7 @@
 
 #include "Scene.h"
 #include "Powerup.h"
+#include "PowerupManager.h"
 
 #include <vector>
 
@@ -11,6 +12,7 @@ class GameScreen : public Scene {
 public:
 
 	std::vector<Powerup> activePowerups;
+	PowerupManager *powerupManager;
 
 	void CreatePowerup(PowerupType type);
 	virtual void Start();

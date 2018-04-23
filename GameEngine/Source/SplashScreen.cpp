@@ -18,7 +18,7 @@ void SplashScreen::End() {
 bool SplashScreen::update(INT32 time) {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 		printf("Called from SpashScreen!");
-		SceneManager::LoadScene("MainMenu");
+		SceneManager::LoadScene("Game");
 	}
 	return true;
 }

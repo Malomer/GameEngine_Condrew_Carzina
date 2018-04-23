@@ -7,7 +7,6 @@
 #include <SFML/Graphics.hpp>
 
 void CondrewCarzina::Initialize() {
-	printf("Made it here\n");
 	gameState = GameState::Uninitialized;
 
 	// No minimum requirements yet TODO: Change this later
@@ -45,7 +44,8 @@ void CondrewCarzina::Start() {
 	while (true) {
 		sf::Time elapsed = clock.restart();
 		HandleEvents();
-		GameLoop(elapsed.asMilliseconds());
+		GameLoop(clock.getElapsedTime().asMilliseconds());
+		//GameLoop(elapsed.asMilliseconds());
 		Render();
 		//GameLoop(clock.getElapsedTime().asMilliseconds());
 	}

@@ -64,6 +64,9 @@
     <Filter Include="Source Files\PingPongPing\Scenes">
       <UniqueIdentifier>{fc38dfc9-7d04-4591-986b-ac320716da21}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Component\Render">
+      <UniqueIdentifier>{b186ba8b-0c95-45c6-88fa-3ce2f19bf9b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Source\main.cpp">
@@ -105,8 +108,26 @@
     <ClCompile Include="..\Source\Ball.cpp">
       <Filter>Source Files\PingPongPing\Components</Filter>
     </ClCompile>
-    <ClCompile Include="SceneManager.cpp">
+    <ClCompile Include="..\Source\SceneManager.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Scene.cpp">
+      <Filter>Source Files\PingPongPing\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\DrawableRenderer.cpp">
+      <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\PowerupManager.cpp">
+      <Filter>Source Files\PingPongPing\Powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\ImageRenderer.cpp">
+      <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\ShapeRenderer.cpp">
+      <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\TestRenderer.cpp">
+      <Filter>Source Files\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -130,9 +151,6 @@
     </ClInclude>
     <ClInclude Include="..\Source\Imports.h">
       <Filter>Header Files\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\TransformComponent.h">
-      <Filter>Header Files\Component</Filter>
     </ClInclude>
     <ClInclude Include="..\Source\GameObjectManager.h">
       <Filter>Header Files\GameObject</Filter>
@@ -190,6 +208,24 @@
     </ClInclude>
     <ClInclude Include="..\Source\SceneManager.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\TransformComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\ShapeRenderer.h">
+      <Filter>Header Files\Component\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\ImageRenderer.h">
+      <Filter>Header Files\Component\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\DrawableRenderer.h">
+      <Filter>Header Files\Component\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\PowerupManager.h">
+      <Filter>Header Files\PingPongPing\Powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\TestRenderer.h">
+      <Filter>Header Files\Component\Render</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
