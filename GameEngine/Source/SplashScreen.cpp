@@ -3,7 +3,8 @@
 #include "SceneManager.h"
 
 void SplashScreen::Start() {
-	if (backgroundTexture.loadFromFile("C:\\Users\\Andrew\\Documents\\Github\\GameEngine_Condrew_Carzina\\GameEngine\\GameEngine\\Assets\\texture.jpg")) {
+	std::string path = ExePath() + "\\Assets\\splash.png";
+	if (backgroundTexture.loadFromFile(path)) {
 	}
 
 	backgroundSprite.setTexture(backgroundTexture);

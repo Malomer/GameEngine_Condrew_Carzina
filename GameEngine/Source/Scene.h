@@ -30,4 +30,5 @@ public:
 	void RegisterDrawable(DrawableRenderer *spriteRenderer);
 	void RegisterDrawable(ShapeRenderer *spriteRenderer);
 	void ClearDrawables();
+	std::string ExePath();
 };
