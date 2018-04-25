@@ -25,10 +25,10 @@ void DrawableRenderer::VUpdate(int deltaMs) {
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 		matrix->translate(Vector3(1, 0, 0) * deltaMs * 2);
 	}
-
-	const float *m = m_pOwner->worldTransform.get();
-	circle.setPosition(m[3], m[7]);
 	*/
+	//const float *m = m_pOwner->worldTransform.get();
+	//circle.setPosition(m[3], m[7]);
+	
 }
 
 void DrawableRenderer::Draw() {

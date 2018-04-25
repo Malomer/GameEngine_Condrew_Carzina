@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Component.h"
-#include "Player.h"
 
 class Ball : public Component {
 
@@ -9,15 +8,12 @@ public:
 
 	virtual const char *VGetName() const { return "Ball"; }
 
-	sf::CircleShape circle;
-	Player lastHit = NULL; // This could be null
-
-	Ball() {
-		circle.setRadius(2);
-		circle.setFillColor(sf::Color::Red);
-		circle.setPosition(0.f, 0.f);
-	}
-
 	void VUpdate(int deltaMs);
+	//void ChangeColor(Player *player);
 	void SpawnBall();
+	void HitHorizontal(); // ------
+	void HitVertical(); // ||||
+
+	float xVelocity = 2.f;
+	float yVelocity = 2.f;
 };

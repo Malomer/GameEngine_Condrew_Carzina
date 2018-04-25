@@ -36,11 +36,14 @@
     <ClCompile Include="..\Source\Scene.cpp" />
     <ClCompile Include="..\Source\SceneManager.cpp" />
     <ClCompile Include="..\Source\ShapeRenderer.cpp" />
+    <ClCompile Include="..\Source\SlowDownPowerup.cpp" />
+    <ClCompile Include="..\Source\SpeedUpPowerup.cpp" />
     <ClCompile Include="..\Source\SplashScreen.cpp" />
     <ClCompile Include="..\Source\DrawableRenderer.cpp" />
     <ClCompile Include="..\Source\TestRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Source\AudioComponent.h" />
     <ClInclude Include="..\Source\Ball.h" />
     <ClInclude Include="..\Source\ChildInput.h" />
     <ClInclude Include="..\Source\Component.h" />
@@ -71,6 +74,7 @@
     <ClInclude Include="..\Source\DrawableRenderer.h" />
     <ClInclude Include="..\Source\StringUtils.h" />
     <ClInclude Include="..\Source\TestRenderer.h" />
+    <ClInclude Include="..\Source\TextComponent.h" />
     <ClInclude Include="..\Source\TransformComponent.h" />
     <ClInclude Include="..\Source\Vectors.h" />
   </ItemGroup>

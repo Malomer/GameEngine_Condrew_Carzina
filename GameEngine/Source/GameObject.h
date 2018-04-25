@@ -19,7 +19,7 @@ public:
 
 private:
 	GameObjectId m_id;
-	Components m_components;
+	
 	GameObjectType m_type;
 	GameObject *parent;
 	
@@ -27,6 +27,8 @@ public:
 	explicit GameObject(GameObjectId id);
 	explicit GameObject(GameObjectId id, std::string name);
 	~GameObject(void);
+
+	Components m_components;
 
 	bool Init();
 	void Destroy(void);
@@ -51,15 +53,30 @@ public:
 
 	template <class ComponentType>
 	std::weak_ptr<ComponentType> GetComponent(const char *name) {
-		ComponentId id = ActorComponent::GetIdFromName(name);
-		ActorComponents::iterator findIt = m_components.find(id);
+		ComponentId id = Component::GetIdFromName(name);
+		Components::iterator findIt = m_components.find(id);
 		if (findIt != m_components.end()) {
-			StrongActorComponentPtr pBase(findIt->second);
-			shared_ptr<ComponentType> pSub(static_pointer_cast<ComponentType>(pBase));
-			weak_ptr<ComponentType> pWeakSub(pSub);
+			StrongComponentPtr pBase(findIt->second);
+			std::shared_ptr<ComponentType> pSub(std::static_pointer_cast<ComponentType>(pBase));
+			std::weak_ptr<ComponentType> pWeakSub(pSub);
 			return pWeakSub;
 		} else {
-			return weak_ptr<ComponentType>();
+			return std::weak_ptr<ComponentType>();
+		}
+	}
+
+	template <class ComponentType>
+	std::shared_ptr<ComponentType> GetComponent2(const char *name) {
+		ComponentId id = Component::GetIdFromName(name);
+		Components::iterator findIt = m_components.find(id);
+		if (findIt != m_components.end()) {
+			StrongComponentPtr pBase(findIt->second);
+			std::shared_ptr<ComponentType> pSub(std::static_pointer_cast<ComponentType>(pBase));
+			//std::weak_ptr<ComponentType> pWeakSub(pSub);
+			return pSub;
+		}
+		else {
+			return std::shared_ptr<ComponentType>();
 		}
 	}
 

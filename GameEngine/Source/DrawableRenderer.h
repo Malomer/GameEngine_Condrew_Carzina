@@ -3,7 +3,7 @@
 #include "Component.h"
 #include "SFML/Graphics.hpp"
 
-class DrawableRenderer : public Component, public sf::Drawable {
+class DrawableRenderer : public Component, public sf::Drawable, public sf::Transformable {
 
 public:
 	sf::CircleShape circle;

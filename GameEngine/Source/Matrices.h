@@ -64,9 +64,6 @@ public:
 	friend Vector2 operator*(const Vector2& vec, const Matrix2& m); // pre-multiplication
 	friend std::ostream& operator<<(std::ostream& os, const Matrix2& m);
 
-protected:
-
-private:
 	float m[4];
 
 };
@@ -120,9 +117,6 @@ public:
 	friend Vector3 operator*(const Vector3& vec, const Matrix3& m); // pre-multiplication
 	friend std::ostream& operator<<(std::ostream& os, const Matrix3& m);
 
-protected:
-
-private:
 	float m[9];
 
 };
@@ -198,9 +192,6 @@ public:
 	friend Vector4 operator*(const Vector4& vec, const Matrix4& m); // pre-multiplication
 	friend std::ostream& operator<<(std::ostream& os, const Matrix4& m);
 
-protected:
-
-private:
 	float       getCofactor(float m0, float m1, float m2,
 		float m3, float m4, float m5,
 		float m6, float m7, float m8);

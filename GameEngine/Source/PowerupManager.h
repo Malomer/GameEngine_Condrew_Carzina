@@ -3,12 +3,16 @@
 #include "Powerup.h"
 #include <vector>
 
-class PowerupManager {
+class PowerupManager : public Component {
 
 public:
+
+	virtual const char *VGetName() const { return "PowerupManager"; }
+
 	std::vector<Powerup> activePowerups;
 
 	PowerupManager();
 
-	void Shutdown();
+	void SpawnRandomPowerup();
+	virtual void VOnDestroy();
 };

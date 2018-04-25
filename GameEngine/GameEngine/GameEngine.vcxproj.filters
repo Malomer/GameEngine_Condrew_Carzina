@@ -129,6 +129,12 @@
     <ClCompile Include="..\Source\TestRenderer.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
+    <ClCompile Include="..\Source\SpeedUpPowerup.cpp">
+      <Filter>Source Files\PingPongPing\Powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\SlowDownPowerup.cpp">
+      <Filter>Source Files\PingPongPing\Powerups</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Source\CondrewCarzina.h">
@@ -226,6 +232,12 @@
     </ClInclude>
     <ClInclude Include="..\Source\TestRenderer.h">
       <Filter>Header Files\Component\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\TextComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\AudioComponent.h">
+      <Filter>Header Files\Component</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

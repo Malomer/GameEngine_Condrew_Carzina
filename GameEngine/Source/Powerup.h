@@ -14,6 +14,7 @@ public:
 	Powerup();
 
 	virtual const char *VGetName() const { return "Powerup"; }
-	void OnActivate();
-	void OnDeactivate();
+	virtual void OnActivate();
+	virtual void OnDeactivate();
+	virtual PowerupType GetPowerupType();
 };

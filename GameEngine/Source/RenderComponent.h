@@ -10,7 +10,7 @@ public:
 	sf::CircleShape circle;
 	sf::RenderWindow *mainWindow;
 
-	virtual const char *VGetName() const { return "Render"; }
+	virtual const char *VGetName() { return "Render"; }
 
 	RenderComponent(sf::RenderWindow &mainWindow, sf::Color color) {
 		this->mainWindow = &mainWindow;

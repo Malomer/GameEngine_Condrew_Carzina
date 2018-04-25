@@ -12,9 +12,7 @@ class GameScreen : public Scene {
 public:
 
 	std::vector<Powerup> activePowerups;
-	PowerupManager *powerupManager;
 
-	void CreatePowerup(PowerupType type);
 	virtual void Start();
 	virtual void End();
 	virtual void draw();

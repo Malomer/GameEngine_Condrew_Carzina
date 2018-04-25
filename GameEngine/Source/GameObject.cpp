@@ -1,5 +1,6 @@
 
 #include "GameObject.h"
+#include "TestRenderer.h"
 
 GameObject::GameObject(GameObjectId id) {
 	m_id = id;
@@ -16,8 +17,18 @@ GameObject::~GameObject(void) {
 }
 
 void GameObject::Destroy(void) {
+	for (Components::iterator it = m_components.begin(); it != m_components.end(); ++it) {
+		it->second->VOnDestroy();
+	}
 	m_components.clear();
 	delete this;
+}
+
+bool GameObject::Init() {
+	for (Components::iterator it = m_components.begin(); it != m_components.end(); ++it) {
+		it->second->VInit();
+	}
+	return true;
 }
 
 void GameObject::Update(int deltaMs) {

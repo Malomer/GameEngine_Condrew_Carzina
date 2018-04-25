@@ -8,6 +8,6 @@ class InputComponent : public Component {
 
 public:
 
-	virtual const char *VGetName() const { return "Input"; }
+	virtual const char *VGetName() { return "Input"; }
 
 };

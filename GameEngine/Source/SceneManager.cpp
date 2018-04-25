@@ -13,9 +13,21 @@ void SceneManager::LoadScene(std::string name) {
 		activeScene->End();
 	}
 
+	/*
+	Scene *newScene = GetScene(name);
+	printf("Starting to load: %s\n", newScene->GetScreenType().c_str());
+	newScene->Start();
+	printf("%s loaded!\n", newScene->GetScreenType().c_str());
+	activeScene = newScene;
+	printf("%s is now active!\n", newScene->GetScreenType().c_str());
+	*/
+	//activeScene->Start();
+
+	
 	activeScene = GetScene(name);
-	printf("Loading: %s", activeScene->GetScreenType().c_str());
+	printf("Loading: %s\n", activeScene->GetScreenType().c_str());
 	activeScene->Start();
+	
 }
 
 Scene* SceneManager::GetScene(std::string name) {

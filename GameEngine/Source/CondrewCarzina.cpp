@@ -43,9 +43,11 @@ void CondrewCarzina::Start() {
 	//while (!IsExiting()) {
 	while (true) {
 		sf::Time elapsed = clock.restart();
+		// float deltaTime = clock.restart().asSeconds();
 		HandleEvents();
-		GameLoop(clock.getElapsedTime().asMilliseconds());
-		//GameLoop(elapsed.asMilliseconds());
+		//GameLoop(clock.getElapsedTime().asMilliseconds());
+		//GameLoop(elapsed.asMilliseconds()); --
+		GameLoop(elapsed.asSeconds());
 		Render();
 		//GameLoop(clock.getElapsedTime().asMilliseconds());
 	}
@@ -81,8 +83,8 @@ void CondrewCarzina::Setup() {
 
 	child->SetParent(parent);
 
-	parent->AddComponent(StrongComponentPtr(new ParentInput(mainWindow)));
-	child->AddComponent(StrongComponentPtr(new ChildInput(mainWindow)));
+	//parent->AddComponent(StrongComponentPtr(new ParentInput(mainWindow)));
+	//child->AddComponent(StrongComponentPtr(new ChildInput(mainWindow)));
 }
 
 void CondrewCarzina::GameLoop(INT32 time) {
@@ -153,11 +155,11 @@ bool CondrewCarzina::CheckMemory(const long physicalRAMNeeded, const long virtua
 	MEMORYSTATUSEX status;
 	GlobalMemoryStatusEx(&status);
 	if (status.ullTotalPhys < physicalRAMNeeded) {
-		std::cout << "CheckMemory: Not enough physical memory.";
+		std::cout << "CheckMemory: Not enough physical memory.\n";
 		return false;
 	}
 	if (status.ullAvailVirtual < virtualRAMNeeded) {
-		std::cout << "CheckMemory: Not enough virtual memory.";
+		std::cout << "CheckMemory: Not enough virtual memory.\n";
 		return false;
 	}
 	char *buff = new char[virtualRAMNeeded];
@@ -165,7 +167,7 @@ bool CondrewCarzina::CheckMemory(const long physicalRAMNeeded, const long virtua
 		delete[] buff;
 		return true;
 	} else {
-		std::cout << "CheckMemory: Not enough contiguous memory.";
+		std::cout << "CheckMemory: Not enough contiguous memory.\n";
 		return false;
 	}
 }
